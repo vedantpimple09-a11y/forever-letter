@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap');
+
+:root {
+  --bg: #fff8f4;
+  --paper: #fffdfb;
+  --pink: #d76d85;
+  --dark: #563a42;
+  --muted: #a18389;
+  --line: #f1dfe0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at top left, #ffe9ed 0%, transparent 45%),
+    radial-gradient(ellipse at bottom right, #f9e9dc 0%, transparent 45%),
+    var(--bg);
+  color: var(--dark);
+  font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+.page {
+  width: 100%;
+  min-height: 100vh;
+  padding: 65px 20px;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  animation: appear 0.7s ease;
+}
+
+.page.active {
+  display: flex;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.envelope {
+  font-size: 47px;
+  margin-bottom: 16px;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  50% {
+    transform: translateY(-7px) rotate(3deg);
+  }
+}
+
+.eyebrow {
+  font-size: 10px;
+  letter-spacing: 4px;
+  color: var(--pink);
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(38px, 7vw, 62px);
+  line-height: 1.16;
+  font-weight: 500;
+  letter-spacing: -1.5px;
+}
+
+h1 em {
+  color: var(--pink);
+  font-weight: 500;
+}
+
+.intro {
+  max-width: 490px;
+  margin: 20px auto 34px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.letter {
+  width: 100%;
+  max-width: 650px;
+  padding: clamp(25px, 6vw, 55px);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  box-shadow: 0 20px 70px #74464d0c;
+  text-align: left;
+}
+
+.letter p {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  line-height: 2;
+  margin-bottom: 20px;
+  color: #71545b;
+}
+
+.letter .salutation {
+  font-size: 23px;
+  color: var(--pink);
+  margin-bottom: 25px;
+}
+
+.letter .signature {
+  margin-top: 35px;
+  margin-bottom: 0;
+  font-size: 15px;
+}
+
+.signature span {
+  display: inline-block;
+  margin-top: 10px;
+  color: var(--pink);
+  font-style: italic;
+}
+
+button {
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+  transition: transform 0.25s, background 0.25s;
+}
+
+button:hover {
+  transform: translateY(-3px);
+}
+
+.primary-btn {
+  margin-top: 30px;
+  padding: 16px 25px;
+  border: none;
+  border-radius: 3px;
+  background: var(--pink);
+  color: white;
+  font-size: 13px;
+  letter-spacing: 0.3px;
+  box-shadow: 0 8px 22px #d76d8525;
+}
+
+.primary-btn span {
+  margin-left: 15px;
+}
+
+.secondary-btn {
+  margin-top: 25px;
+  padding: 13px 20px;
+  border: 1px solid #e9cbd2;
+  border-radius: 3px;
+  background: transparent;
+  color: var(--dark);
+  font-size: 12px;
+}
+
+.tiny {
+  margin-top: 25px;
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: #b59ba0;
+}
+
+.video-page {
+  justify-content: center;
+}
+
+.video-frame {
+  width: 100%;
+  max-width: 850px;
+  aspect-ratio: 16 / 9;
+  background: #f6e5e8;
+  border: 1px solid #efd7dd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px #74464d15;
+}
+
+.video-frame iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.video-caption {
+  margin-top: 22px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.floating-hearts {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 5;
+}
+
+.floating-heart {
+  position: absolute;
+  bottom: -30px;
+  opacity: 0;
+  color: var(--pink);
+  animation: rise linear forwards;
+}
+
+@keyframes rise {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.5;
+  }
+  85% {
+    opacity: 0.35;
+  }
+  100% {
+    transform: translateY(-105vh) rotate(35deg);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .page {
+    padding: 42px 18px;
+  }
+
+  .letter {
+    padding: 25px 22px;
+  }
+
+  .letter p {
+    font-size: 15px;
+    line-height: 1.95;
+  }
+
+  .intro {
+    margin-bottom: 25px;
+  }
+
+  .video-frame {
+    border-radius: 5px;
+  }
+}
